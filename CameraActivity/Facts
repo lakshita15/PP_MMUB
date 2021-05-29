@@ -1,0 +1,34 @@
+Animations in CSS are done using keyframes.
+Specify when the style change will happen in percent, or with the keywords "from" and "to", which is the same as 0% and 100%. 0% is the beginning of the animation, 100% is when the animation is complete.
+add a name to keyframes that'll be used to define tghe animation property 
+ animation: scale 2s infinite; :-- here animation name is scale , the animation will be of 2 seconds and run infinite times.
+ translate() method moves an element from its current position to given x and y coordinates. translate(-50%, -50%) makes the ddiv class move towards -50 in x axis and y axis.
+ scale() ;- it helps you to raise the scale of element by number provided in bracket
+ 
+                       Canvas
+
+ canvas.getContext("2d");=> gets a 2d canvas which has properties and methods for drawing
+ beginPath(); => starts new path  or resets the current path
+ ctx.moveTo(x, y); => defines the starting point of the line
+ ctx.lineTo(x, y);=> defines the ending point of the line
+ ctx.strokeStyle = "blue"; => changes the colouur of stroke
+ ctx.lineWidth = 20; => changes width of line
+ ctx.stroke(); => with this the line that we have created is made visible to us 
+ The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style, on the canvas
+ .fillStyle = "colour";
+toDataURL() => saves caanvas as an image 
+drawImage(img/video, 0, 0) => draws an img from given x & y coordinates
+
+                    Camera(video)
+BOM => Browser Object Model
+<video autoplay controls> video tage has an autoplay that plays video just on loading window with controls like play pause etc.
+navigator => predefined object by browser=> has object mediadevices=>has getUserMedia() fnc => promise based fnc => it has object constraints{video:true , audio :true}
+mediaStream => has video in it passed into mediaRecorder a browser fnc has start and stop fnc.
+MediaRecorder gets data from media stream that is in peices and stored in array by using e.data on datavailable
+blob is a large raw data that has chunks and puts them together.
+url bnaya createObjectURL(object)=>helps to download video 
+
+                    Camera(image)
+ videoWidth =>get width of video
+ videoHeight =>get height of video
+ toDataURL() = > method returns a data URI containing a representation of the image in the format specified by the type parameter (defaults to PNG).If height width of canvas is 0 then empty data string is returned.
