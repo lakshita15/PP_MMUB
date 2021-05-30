@@ -5,7 +5,45 @@
 body {
   margin: 0;
 }
-
+.filters{
+  height: 25rem;
+  width: 5rem;
+  z-index: 3;
+  position: fixed;
+  left: 2rem;
+  top: calc((100vh - 25rem) / 2);
+}
+.filter {
+  border: 2px solid white;
+  width: 100%;
+  height: calc(25rem / 6);
+  background: url(./filter.jfif);
+  background-size: cover;
+  background-blend-mode: soft-light;
+}
+.filter-div{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+.zoom-in-out-container{
+  height: 10rem;
+  width: 5rem;
+  position: fixed;
+  z-index: 3;
+  right: 2rem;
+  top: 6rem;
+}
+.zoom-in-out-container div{
+  width: 100%;
+  height: 50%;
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #2f3640;
+}
 .video-container {
   height: 100vh;
   width: 100vw;
@@ -24,6 +62,7 @@ video {
   right: 2rem;
   height: 4rem;
   width: 4rem;
+  z-index: 3;
   background-color: black;
   border-radius: 50%;
   border: 5px solid white;

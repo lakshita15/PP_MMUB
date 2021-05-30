@@ -1,34 +1,91 @@
-Animations in CSS are done using keyframes.
+                                            //************Animations in CSS are done using keyframes.************//
+
+
 Specify when the style change will happen in percent, or with the keywords "from" and "to", which is the same as 0% and 100%. 0% is the beginning of the animation, 100% is when the animation is complete.
+
 add a name to keyframes that'll be used to define tghe animation property 
+
  animation: scale 2s infinite; :-- here animation name is scale , the animation will be of 2 seconds and run infinite times.
- translate() method moves an element from its current position to given x and y coordinates. translate(-50%, -50%) makes the ddiv class move towards -50 in x axis and y axis.
- scale() ;- it helps you to raise the scale of element by number provided in bracket
  
-                       Canvas
+ translate() method moves an element from its current position to given x and y coordinates. translate(-50%, -50%) makes the ddiv class move towards -50 in x axis and y axis.
+
+ scale() ;- it helps you to raise the scale of element by number provided in bracket
+
+
+ 
+                                                     //************CANVAS************//
 
  canvas.getContext("2d");=> gets a 2d canvas which has properties and methods for drawing
+
  beginPath(); => starts new path  or resets the current path
+
  ctx.moveTo(x, y); => defines the starting point of the line
+
  ctx.lineTo(x, y);=> defines the ending point of the line
+
  ctx.strokeStyle = "blue"; => changes the colouur of stroke
+
  ctx.lineWidth = 20; => changes width of line
+
  ctx.stroke(); => with this the line that we have created is made visible to us 
+
  The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style, on the canvas
- .fillStyle = "colour";
+
+ .fillStyle = "colour"; //by default black
+
 toDataURL() => saves caanvas as an image 
+
 drawImage(img/video, 0, 0) => draws an img from given x & y coordinates
 
-                    Camera(video)
+
+
+                                           //****************************Camera(video)************************************//
+
+
 BOM => Browser Object Model
+
 <video autoplay controls> video tage has an autoplay that plays video just on loading window with controls like play pause etc.
+
 navigator => predefined object by browser=> has object mediadevices=>has getUserMedia() fnc => promise based fnc => it has object constraints{video:true , audio :true}
 mediaStream => has video in it passed into mediaRecorder a browser fnc has start and stop fnc.
+
 MediaRecorder gets data from media stream that is in peices and stored in array by using e.data on datavailable
+
 blob is a large raw data that has chunks and puts them together.
+
 url bnaya createObjectURL(object)=>helps to download video 
 
-                    Camera(image)
+                                        //****************************Camera(Image)************************************//
  videoWidth =>get width of video
+
  videoHeight =>get height of video
+
  toDataURL() = > method returns a data URI containing a representation of the image in the format specified by the type parameter (defaults to PNG).If height width of canvas is 0 then empty data string is returned.
+
+
+
+                                        //****************************FILTERS************************************//
+Applying the filters takes a image and colours and blends it. To make it feasible we make a div that covers the whole area from the top and we store a global variable filter and change the style of this div to the filtercolor(filter varible me jo clr pda hoga click ke baad) and add it to the filterdiv.
+
+we get the value of cuurentfilter from  filter = e.currentTarget.style.backgroundColor;
+
+                                ****ONLY APPLIED TO IMAGES as if we apply filters to video it is GPU expensive****
+for images we draw a rect of color filter on full canvas  if filter is not applied else nothing.
+
+Agr filter is applied to remove then add new filter if we dont remove the previous filter it'll get stacked on one another.
+
+
+                                            //****************************ZOOM************************************//
+ctx.translate(c.width/2 , c.height/2);
+ctx.scale(currzoom , currzoom);
+ctx.translate(-c.width/2 , -c.height/2); // we need to use this bcos the image that came was shifted to bottom-right of canvas as by default it zooms in image frm( 0,0 ). Translate it back to the negative coordinates of canvas.
+
+let videocurrscale = video.style.transform.split("(")[1].split(")")[0]; this gets the scale from video tag in html and on zoomin the  transform scale is set to the currzoom If we didn't do this then the scale value wwould remain 1.1 or so..
+
+Both use scale for zooming in the image
+                                            **only applied on images** 
+filter="" ;  removefilter(); is used to removes any filter stored in global variable 
+
+
+                        //****************************STORAGE************************************//
+Images will be stored in IndexDb
