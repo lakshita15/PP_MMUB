@@ -76,7 +76,7 @@ navigator.mediaDevices.getUserMedia(constraints).then(function (mediaStream) {
 
   mediaRecorder.addEventListener("stop", function () {
     let blob = new Blob(chunks, { type: "video/mp4" });
-
+    addMedia("video" , blob)
     chunks = [];
 
     let url = URL.createObjectURL(blob);
@@ -107,6 +107,7 @@ function capture() {
   let a = document.createElement("a");
   a.download = "image.jpg";
   a.href = c.toDataURL();
+  addMedia("img" , c.toDataURL())
   a.click();
   a.remove();
 }

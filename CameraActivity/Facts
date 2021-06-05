@@ -1,4 +1,4 @@
-                                            //************Animations in CSS are done using keyframes.************//
+//************Animations in CSS are done using keyframes.************//
 
 
 Specify when the style change will happen in percent, or with the keywords "from" and "to", which is the same as 0% and 100%. 0% is the beginning of the animation, 100% is when the animation is complete.
@@ -13,7 +13,7 @@ add a name to keyframes that'll be used to define tghe animation property
 
 
  
-                                                     //************CANVAS************//
+//************CANVAS************//
 
  canvas.getContext("2d");=> gets a 2d canvas which has properties and methods for drawing
 
@@ -39,7 +39,7 @@ drawImage(img/video, 0, 0) => draws an img from given x & y coordinates
 
 
 
-                                           //****************************Camera(video)************************************//
+//****************************Camera(video)************************************//
 
 
 BOM => Browser Object Model
@@ -55,7 +55,7 @@ blob is a large raw data that has chunks and puts them together.
 
 url bnaya createObjectURL(object)=>helps to download video 
 
-                                        //****************************Camera(Image)************************************//
+//****************************Camera(Image)************************************//
  videoWidth =>get width of video
 
  videoHeight =>get height of video
@@ -64,7 +64,7 @@ url bnaya createObjectURL(object)=>helps to download video
 
 
 
-                                        //****************************FILTERS************************************//
+//****************************FILTERS************************************//
 Applying the filters takes a image and colours and blends it. To make it feasible we make a div that covers the whole area from the top and we store a global variable filter and change the style of this div to the filtercolor(filter varible me jo clr pda hoga click ke baad) and add it to the filterdiv.
 
 we get the value of cuurentfilter from  filter = e.currentTarget.style.backgroundColor;
@@ -75,7 +75,7 @@ for images we draw a rect of color filter on full canvas  if filter is not appli
 Agr filter is applied to remove then add new filter if we dont remove the previous filter it'll get stacked on one another.
 
 
-                                            //****************************ZOOM************************************//
+//****************************ZOOM************************************//
 ctx.translate(c.width/2 , c.height/2);
 ctx.scale(currzoom , currzoom);
 ctx.translate(-c.width/2 , -c.height/2); // we need to use this bcos the image that came was shifted to bottom-right of canvas as by default it zooms in image frm( 0,0 ). Translate it back to the negative coordinates of canvas.
@@ -87,5 +87,7 @@ Both use scale for zooming in the image
 filter="" ;  removefilter(); is used to removes any filter stored in global variable 
 
 
-                        //****************************STORAGE************************************//
-Images will be stored in IndexDb
+//****************************STORAGE************************************//
+Images will be stored in IndexDb 
+IndexDb is given by browser..
+There are 4 types of database :- SQL , NoSQL , GraphQL , Key Value pair based.
