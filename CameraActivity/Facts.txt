@@ -90,4 +90,59 @@ filter="" ;  removefilter(); is used to removes any filter stored in global vari
 //****************************STORAGE************************************//
 Images will be stored in IndexDb 
 IndexDb is given by browser..
-There are 4 types of database :- SQL , NoSQL , GraphQL , Key Value pair based.
+There are 4 types of database :- SQL , NoSQL , GraphQL , Key Value pair based.4
+
+sql has a certain schema to be followed.(I.e it has a row column table like relation and complex on the other hand is NoSQL says give me a JS object of this row vcolumn etc.)
+Poore object ki collection is called NoSQL. THis collection is stored in storage.
+
+         __ Database name
+IndexDB-|__Database verion
+
+Creation:--
+To create a Db we have to request the browser using open("db name" , "db version);
+                                  events
+                                /    |    \
+                               /     |     \
+                        success     error   upgradeneeded
+
+  SUCCESS :- when the db opens successfully and  request chl gai                 
+  Error :-   error on unsuccessful opening of db   
+  Upgradeneeded:- calls on 2 ways..
+  1) When Db is created for first time.
+  2)A db exist and version upgrade krke.
+  Upgrade event ke baad call hota h success event.
+
+  To add the object store the version has to be incresednot decreased as it will give an error. It can only be created on upgradeneeded event.
+
+  .result from request gives the access to Db.
+
+  Collection in NoSQL and Tables in SQL have same meaning.
+
+  You might have seen an error on version update and then create db initially bcos the name of db is same so you need to do this task manually.
+
+  {keyPath: "nId"} => key path has a unique nid that is sort of similar to the id .
+
+  To add , create, read write file in db we need to make transaction.
+                                TRANSACTION
+                                /       \
+                               /         \
+                        ReadOnly         ReadWrite only
+ReadOnly => Can only read the names of files. 
+ReadWrite => Reads the files and writes them in db with an id and value.
+
+For reading we get a cursor. The cursor points to the top object of the file and iterates on the next object to read that.
+
+openCursor() => it's a request
+        |
+        |=> when success the cursor opens
+        |=> apni request ka result is the cursor only
+
+when end of file the cursor is empty.
+cursorr.continue() => the whole event runs again.
+
+the fnc to view the data viewresults()=> called when we have full and sure access of db from the success event....
+
+
+                        
+        
+
