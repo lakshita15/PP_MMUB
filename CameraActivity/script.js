@@ -5,6 +5,7 @@ let capBtn = document.querySelector("button#capture");
 let filters = document.querySelectorAll(".filter")
 let zoomin = document.querySelector(".zoom-in");
 let zoomout = document.querySelector(".zoom-out")
+let gallerybtn = document.querySelector("#gallery");
 let constraints = { video: true, audio: false };
 let mediaRecorder;
 let isRecording = false;
@@ -13,6 +14,10 @@ let chunks = [];
 let minzoom = 1;
 let maxzoom = 3;
 let currzoom = 1;
+
+gallerybtn.addEventListener("click" , function(){
+  location.assign("gallery.html")
+})
 let filter = "";
 
 for(let i =0 ; i < filters.length ; i++){
