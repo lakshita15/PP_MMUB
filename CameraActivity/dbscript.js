@@ -40,7 +40,7 @@ function viewMedia(){
        </div>
        <div class = "action-container">
        <button class = "media-download">Download</button>
-       <button class = "media-delete">Delete</button>
+       <button class = "media-delete" data-id = "${cursor.value.mId}">Delete</button>
        </div>`;
        let downloadbtn = div.querySelector(".media-download");
        let deletebtn = div.querySelector(".media-delete");
@@ -99,7 +99,7 @@ function viewMedia(){
     })
 }
 function deleteMediaFromDB(mId){
-    let tx=dbAccess.transaction("gallery","readwrite");
+    let tx=dbAccess.transaction("gallery","readwrite"); 
     let galleryObjectStore=tx.objectStore("gallery");
    galleryObjectStore.delete(Number(mId))
 

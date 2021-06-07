@@ -3,11 +3,11 @@
 
 Specify when the style change will happen in percent, or with the keywords "from" and "to", which is the same as 0% and 100%. 0% is the beginning of the animation, 100% is when the animation is complete.
 
-add a name to keyframes that'll be used to define tghe animation property 
+add a name to keyframes that'll be used to define the animation property 
 
  animation: scale 2s infinite; :-- here animation name is scale , the animation will be of 2 seconds and run infinite times.
  
- translate() method moves an element from its current position to given x and y coordinates. translate(-50%, -50%) makes the ddiv class move towards -50 in x axis and y axis.
+ translate() method moves an element from its current position to given x and y coordinates. translate(-50%, -50%) makes the div class move towards -50 in x axis and y axis.
 
  scale() ;- it helps you to raise the scale of element by number provided in bracket
 
@@ -23,7 +23,7 @@ add a name to keyframes that'll be used to define tghe animation property
 
  ctx.lineTo(x, y);=> defines the ending point of the line
 
- ctx.strokeStyle = "blue"; => changes the colouur of stroke
+ ctx.strokeStyle = "blue"; => changes the colour of stroke
 
  ctx.lineWidth = 20; => changes width of line
 
@@ -33,7 +33,7 @@ add a name to keyframes that'll be used to define tghe animation property
 
  .fillStyle = "colour"; //by default black
 
-toDataURL() => saves caanvas as an image 
+toDataURL() => saves canvas as an image 
 
 drawImage(img/video, 0, 0) => draws an img from given x & y coordinates
 
@@ -60,7 +60,7 @@ url bnaya createObjectURL(object)=>helps to download video
 
  videoHeight =>get height of video
 
- toDataURL() = > method returns a data URI containing a representation of the image in the format specified by the type parameter (defaults to PNG).If height width of canvas is 0 then empty data string is returned.
+ toDataURL() = > method returns a data URL containing a representation of the image in the format specified by the type parameter (defaults to PNG).If height width of canvas is 0 then empty data string is returned.
 
 
 
@@ -80,7 +80,7 @@ ctx.translate(c.width/2 , c.height/2);
 ctx.scale(currzoom , currzoom);
 ctx.translate(-c.width/2 , -c.height/2); // we need to use this bcos the image that came was shifted to bottom-right of canvas as by default it zooms in image frm( 0,0 ). Translate it back to the negative coordinates of canvas.
 
-let videocurrscale = video.style.transform.split("(")[1].split(")")[0]; this gets the scale from video tag in html and on zoomin the  transform scale is set to the currzoom If we didn't do this then the scale value wwould remain 1.1 or so..
+let videocurrscale = video.style.transform.split("(")[1].split(")")[0]; this gets the scale from video tag in html and on zoomin the  transform scale is set to the currzoom If we hadn't done this then the scale value would have remained 1.1 or so..
 
 Both use scale for zooming in the image
                                             **only applied on images** 
@@ -90,10 +90,10 @@ filter="" ;  removefilter(); is used to removes any filter stored in global vari
 //****************************STORAGE************************************//
 Images will be stored in IndexDb 
 IndexDb is given by browser..
-There are 4 types of database :- SQL , NoSQL , GraphQL , Key Value pair based.4
+There are 4 types of database :- SQL , NoSQL , GraphQL , Key Value pair based.
 
-sql has a certain schema to be followed.(I.e it has a row column table like relation and complex on the other hand is NoSQL says give me a JS object of this row vcolumn etc.)
-Poore object ki collection is called NoSQL. THis collection is stored in storage.
+sql has a certain schema to be followed.(I.e it has a row column table like relation and complex on the other hand is NoSQL says give me a JS object of this row column etc.)
+Poore object ki collection is called NoSQL. This collection is stored in storage.
 
          __ Database name
 IndexDB-|__Database verion
@@ -112,7 +112,7 @@ To create a Db we have to request the browser using open("db name" , "db version
   2)A db exist and version upgrade krke.
   Upgrade event ke baad call hota h success event.
 
-  To add the object store the version has to be incresednot decreased as it will give an error. It can only be created on upgradeneeded event.
+  To add the object store the version has to be incresed not decreased as it will give an error. It can only be created on upgradeneeded event.
 
   .result from request gives the access to Db.
 
@@ -126,7 +126,7 @@ To create a Db we have to request the browser using open("db name" , "db version
                                 TRANSACTION
                                 /       \
                                /         \
-                        ReadOnly         ReadWrite only
+                        ReadOnly         ReadWrite 
 ReadOnly => Can only read the names of files. 
 ReadWrite => Reads the files and writes them in db with an id and value.
 
@@ -138,7 +138,7 @@ openCursor() => it's a request
         |=> apni request ka result is the cursor only
 
 when end of file the cursor is empty.
-cursorr.continue() => the whole event runs again.
+cursor.continue() => the whole event runs again.
 
 the fnc to view the data viewresults()=> called when we have full and sure access of db from the success event....
 
