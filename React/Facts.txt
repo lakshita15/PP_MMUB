@@ -147,3 +147,24 @@ let doublecopy = {   =========|
 JSON.stringify(pass an object) => use to convert object to string.
 JSON.parse(pass an object) => convert string to object 
 And by this we don't need nesting and no changes get reflected in Deepcopy and state
+
+
+//THIS 
+It is a keyword that particularly refer to an object. 
+The value of this will change according to the context in which it is referred to.
+
+//GLOBAL EXECUTION context
+
+By default, the execution context for an execution is global — which means if a code is being executed as part of a simple function call, then this refers to a global object.
+
+The window object is the global object in the case of the browser.
+
+The value of THIS in a function depends on how we've called the function.
+
+When THIS is called with object it is equal to the object through which the function is called.
+
+//BIND
+The bind() method is defined on other functions and is only called on a function
+
+bind returns a new function whose definition is similar to the function on which it is called
+ and whose this is explicitly set equal to the argument that is passed
