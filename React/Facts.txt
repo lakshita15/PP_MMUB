@@ -151,6 +151,7 @@ And by this we don't need nesting and no changes get reflected in Deepcopy and s
 
 //THIS 
 It is a keyword that particularly refer to an object. 
+This is used for function calling.
 The value of this will change according to the context in which it is referred to.
 
 //GLOBAL EXECUTION context
@@ -159,12 +160,115 @@ By default, the execution context for an execution is global — which means if 
 
 The window object is the global object in the case of the browser.
 
-The value of THIS in a function depends on how we've called the function.
+The value of THIS in a function depends on how we've called the function.(in abc.js)
 
-When THIS is called with object it is equal to the object through which the function is called.
+*When THIS is called without any  object it is equal to the window object.
+
+*When THIS is called with object it is equal to the object through which the function is called.
+
+*When THIS is called by defination of a fuction that is present in an object then it is equal to the window 
 
 //BIND
 The bind() method is defined on other functions and is only called on a function
 
-bind returns a new function whose definition is similar to the function on which it is called
- and whose this is explicitly set equal to the argument that is passed
+bind returns a new function whose definition is similar to the function on which it is called and whose this is explicitly set equal to the argument that is passed
+
+//ARROW Function
+*SYNTAX
+let identifier = (//arguments if any)=>{
+
+}
+//Diff between arror fnc and Nrml fnc
+Arrow func====>>>> 
+1.The value of "THIS" of Arrow function is fiexd to it's lexical enviroment 
+Lexcical Enviroment:- Takes it's upper level scope (i.e arrow fnc ke bhr ke this ko apne this ke equal kr deta hai ).
+Nrml func====>>>
+1.The value of "THIS" of Nrml function depends on how the function is been called.
+
+//CLASSES
+The class give us a template or a bluePrint.
+It provides a structure.
+*SYNTAX
+class abc{
+    //abc is class name 
+
+    constructor(person){
+        //In the constructor only data members can be added
+        this.person = person;
+        this.age = 10;
+    }
+    //member functions called outside the constructor
+    //no need to write function automatically makes it a function
+    sayshi(){
+        -----
+    }
+    
+}
+
+Class is just a blueprint so it needs to be defined to do this we have objects
+OBJECTS are instance of class. Assign meaning to a  class
+
+The value of "THIS" in class is equal to the object of that class (in class.js)
+
+//BIND FUNCTION IN CLASSES
+wE know bind is called on a fnc, sayshi is a function and when we will  call bind on this fnc no change on says hi
+This bind will return a function. 
+Iss function ko catch in new data member a good prcts is to catch the changes where they have been changed.
+this catched this will be equal to the object(in class.js)
+
+//ARROW FUNCTION IN CLASSES
+Automatically make default data member 
+sayhi this = obj ka this
+
+
+/************************************************REACT************************************************/
+
+React is JS library to build UI.
+UI is managed by state.
+
+COMPONNETS=> The COMPONNETS in react are independant , isolated and reusable.
+2types- 1. class based components 2. function based components
+
+//BABEL
+In react the code is written in JSX. 
+JSX is the mixture of HTML , CSS,JS.
+Browser can't understand JSX and can only understand js
+
+babel is medium to convert jsx=>js
+
+Functional components Syntax
+function hello(){
+    return(
+        //jsx code
+    )
+}
+
+//Render=> takes the components on ui , reflect changes
+To attatch the comp or call fnc we use Render
+ReactDOM.render(comp whose material is needed , where to attatch);
+eg:-ReactDOM.render(<Hellos/>,document.getElementById('root')); => hellos ka data id pe attatch krdo
+
+React.Fragment is used to wrap the multiple items and render it.
+
+in react we can only use 
+?=>ternary operator =====|
+map fnc                  | => these restrictions are only for return block
+no loops         ========|
+
+Props send data from parent to child
+passed to arguement of a function
+
+//static ui use =>function components
+//dynamic => use class components because they have state
+
+//STATE
+It enables the dynamic nature.
+It is built in react OBJECT used to contain data or info about components
+Whenever state changes the components re render themselves
+
+ this.state.count= this.state.count+1; never ever change the state of react  directly
+ this.setState => use this to change the state 
+
+super();//isse hume this milta h class ka
+
+
