@@ -272,3 +272,15 @@ Whenever state changes the components re render themselves
 super();//isse hume this milta h class ka
 
 
+
+searxching temporary optn
+jo ki har render pe perform 
+state capture jese ip box me chng state set render again
+
+text type basis pe search 
+new array 
+initial empty
+
+if type 
+includes fnc
+string pe calltell if ye word h ya ni har movie ka title h and check if ye text present h ya ni hai to push vrna nothing

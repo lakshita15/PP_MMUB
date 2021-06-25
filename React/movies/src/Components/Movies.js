@@ -24,6 +24,28 @@ export default class Movies extends Component {
             movies:arr
         });
     }
+   sortbyrating =(e)=>{
+       let className = e.target.className;
+
+       let sortedmovies=[];
+       if(className =='fa fa-sort-asc'){
+        sortedmovies= this.state.movies.sort(function(movieobja , movieobjb){
+          //ascending order  
+          return movieobja.dailyRentalRate - movieobjb.dailyRentalRate
+        })
+       }else{
+        //descending order
+        sortedmovies= this.state.movies.sort(function(movieobja , movieobjb){
+            //ascending order  
+            return movieobjb.dailyRentalRate - movieobja.dailyRentalRate
+          })
+       }
+       this.setState({
+           movies : sortedmovies
+
+       })
+   }
+
     render() {
         console.log('render');
         let {movies,currSearchText} =this.state; //ES6 destructuring
@@ -62,9 +84,9 @@ export default class Movies extends Component {
                                         <i class="fa fa-sort-desc" aria-hidden="true"></i>
                                         </th>
                                     <th scope="col">
-                                    <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                                    <i onClick={this.sortbyrating}class="fa fa-sort-asc" aria-hidden="true"></i>
                                         Rate
-                                        <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                                        <i onClick={this.sortbyrating}class="fa fa-sort-desc" aria-hidden="true"></i>
                                         </th>
                                     <th></th>
                                 </tr>
