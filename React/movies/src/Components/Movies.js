@@ -154,7 +154,7 @@ handlePagechange=(pagenumber)=>{
                 <li onClick={()=>{
                     this.handlePagechange(pagenumber)
                 }} className={classStyle}>
-                <span clspanssName="page-link" >{pagenumber}</span>
+                <span className="page-link" >{pagenumber}</span>
               </li>
             )
         })
