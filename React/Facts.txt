@@ -272,15 +272,25 @@ Whenever state changes the components re render themselves
 super();//isse hume this milta h class ka
 
 
-
-searxching temporary optn
+//SEARCHING
+searching temporary operation
 jo ki har render pe perform 
 state capture jese ip box me chng state set render again
-
 text type basis pe search 
-new array 
-initial empty
+new array will be made that is initially empty
+To check we use includes method
 
-if type 
-includes fnc
-string pe calltell if ye word h ya ni har movie ka title h and check if ye text present h ya ni hai to push vrna nothing
+The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+It return a  Boolean which is true if the value searchElement is found within the array (or the part of the array indicated by the index fromIndex, if specified)
+//Syntax:- includes(searchElement, fromIndex)
+
+
+//SORTING
+We call the sort function on an array.
+It return a new array. And no copy is made
+It first convers to the string then compares the values or sort.
+Give a compare function.
+It takes 2 arguements (a,b)
+
+If compareFunction(a, b) returns a value > than 0, sort b before a.
+If compareFunction(a, b) returns a value ≤ 0, leave a and b in the same order.
