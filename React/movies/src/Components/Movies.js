@@ -5,7 +5,9 @@ export default class Movies extends Component {
         super();
         this.state = {
             movies: getMovies(),
-            currSearchText:''
+            currSearchText:'',
+            currpage :1,
+            limit:4
         }
     }
     handleChange=(e)=>{
@@ -45,10 +47,33 @@ export default class Movies extends Component {
 
        })
    }
+   sortbysstock =(e)=>{
+    let className = e.target.className;
 
+    let sortedmovies=[];
+    if(className =='fa fa-sort-asc'){
+     sortedmovies= this.state.movies.sort(function(movieobja , movieobjb){
+       //ascending order  
+       return movieobja.numberInStock - movieobjb.numberInStock
+     })
+    }else{
+     //descending order
+     sortedmovies= this.state.movies.sort(function(movieobja , movieobjb){
+         //ascending order  
+         return movieobjb.numberInStock - movieobja.numberInStock
+       })
+    }
+    this.setState({
+        movies : sortedmovies
+
+    })
+}
+handlePagechange=(pagenumber)=>{
+    this.setState({currpage : pagenumber})
+}
     render() {
         console.log('render');
-        let {movies,currSearchText} =this.state; //ES6 destructuring
+        let {movies,currSearchText , currpage , limit} =this.state; //ES6 destructuring
         let filteredArr = [];
         if(currSearchText=='')
         {
@@ -62,7 +87,17 @@ export default class Movies extends Component {
                 return title.includes(currSearchText.toLowerCase());
             })
         }
-       
+       let numberofpages = Math.ceil(filteredArr.length / limit);
+       let pagenumberarr = [];
+       for(let i =0 ; i <numberofpages;i++){
+        pagenumberarr.push(i+1);
+       }
+
+       let si = (currpage-1)*limit;
+       let ei = si+limit;
+       //slice array->subarray
+       filteredArr= filteredArr.slice(si , ei);
+
         return (
             //JSX
             <div className='container'>
@@ -79,9 +114,9 @@ export default class Movies extends Component {
                                     <th scope="col">Title</th>
                                     <th scope="col">Genre</th>
                                     <th scope="col">
-                                    <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                                    <i onClick={this.sortbysstock}class="fa fa-sort-asc" aria-hidden="true"></i>
                                         Stock
-                                        <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                                        <i onClick={this.sortbysstock}class="fa fa-sort-desc" aria-hidden="true"></i>
                                         </th>
                                     <th scope="col">
                                     <i onClick={this.sortbyrating}class="fa fa-sort-asc" aria-hidden="true"></i>
@@ -110,9 +145,36 @@ export default class Movies extends Component {
                                 }
                             </tbody>
                         </table>
+                        <nav aria-label="...">
+  <ul class="pagination">
+    {
+        pagenumberarr.map((pagenumber)=>{
+            let classStyle = pagenumber==currpage?'page-item active':'page-item';
+            return(
+                <li onClick={()=>{
+                    this.handlePagechange(pagenumber)
+                }} className={classStyle}>
+                <span clspanssName="page-link" >{pagenumber}</span>
+              </li>
+            )
+        })
+    }
+  </ul>
+</nav>
                     </div>
                 </div>
             </div>
         )
     }
 }
+{/* <li className="page-item disabled">
+      <a className="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li className="page-item"><a className="page-link" href="#">1</a></li>
+    <li className="page-item active" aria-current="page">
+      <a className="page-link" href="#">2</a>
+    </li>
+    <li className="page-item"><a className="page-link" href="#">3</a></li>
+    <li className="page-item">
+      <a className="page-link" href="#">Next</a>
+    </li> */}
