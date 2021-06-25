@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
 import { getMovies } from './getMovies';
+import axios from 'axios';
 export default class Movies extends Component {
     constructor() {
         super();
         this.state = {
-            movies: getMovies(),
+            movies: [],
             currSearchText:'',
             currpage :1,
             limit:4
         }
+    }
+    async componentDidMount(){
+        console.log("inside component did mount");
+        let result = await axios.get("https://backend-react-movie.herokuapp.com/movies");
+        console.log(result.data.movies);
+        this.setState({
+            movies: result.data.movies
+        })
     }
     handleChange=(e)=>{
         let val = e.target.value;
