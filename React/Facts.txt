@@ -315,5 +315,50 @@ componentDidMount() is invoked immediately after a component is mounted (inserte
 Axios:- Promisified library(Promise based HTTP client for the browser and node.js)
 installation:- npm i axios.
 
+/***********************Routing***********************/
+
  A <Switch> looks through its children <Route>s and
  renders the first one that matches the current URL.
+ exact keyword make the component match exactly to path and then only renders it.
+
+ <Link>
+ Provides declarative, accessible navigation around your application.
+<Link to="/about"> basically we write ki link kha pe => link to this path
+
+ /***********************HOOKS***********************/
+ Hooks:- Hooks are the functions that let you hook into the react state & lifecycle methods from functional components..
+ Hooks don't work in class components.
+ Called inside a function
+It let's functional components to make their state and lifecycles.
+It lets us add local state to React function components 
+
+Need?
+1.Escape boiler plate code ffrom class components.
+2.No worries to handle this.
+3.Seperation of logics.
+ 
+useState:- It is a Hook.
+useState returns a pair: the current state value and a function that lets you update it.
+Funnction is  similar to [this.setState] in a class.
+The only argument to useState is the initial state.
+
+in class component 
+this.state={
+    count =0; // ye thi vha initial value that is now passed as an arguement in use state as its initial state.
+
+}
+this.setState({
+   count: updated value //this updation of state is done by the functiion
+    });
+
+Unlike with classes, the state doesn’t have to be an object.
+//update state
+To updte the state instead of using count: this.state.count + 1  we use 
+the function passed to update the state 
+  setCount(count-1);
+
+//Reading state
+When we want to display the current count in a class, we read this.state.count but here we directly write {function name}
+
+React will then re-render the function component, passing the new count value to it.
+//EVERYTIME STATE WILL CHANGE THE WHOLE FUNCTION WILL RE RENDER.
