@@ -8,15 +8,21 @@ export default class Movies extends Component {
             movies: [],
             currSearchText:'',
             currpage :1,
-            limit:4
+            limit:4,
+            genres: [{ _id: 'abcd', name: 'All Genres' }],
+            cGenre: 'All Genres'
         }
     }
-    async componentDidMount(){
+    async componentDidMount() {
         console.log("inside component did mount");
         let result = await axios.get("https://backend-react-movie.herokuapp.com/movies");
+        let genreRes = await axios.get('https://backend-react-movie.herokuapp.com/genres');
+        // console.log(res.data.movies);
+        console.log(genreRes.data.genres);
         console.log(result.data.movies);
         this.setState({
-            movies: result.data.movies
+            movies: result.data.movies,
+            genres: [...this.state.genres, ...genreRes.data.genres]
         })
     }
     handleChange=(e)=>{
@@ -80,9 +86,14 @@ export default class Movies extends Component {
 handlePagechange=(pagenumber)=>{
     this.setState({currpage : pagenumber})
 }
+handleGenreChange=(genre)=>{
+    this.setState({
+        cGenre:genre
+    })
+}
     render() {
         console.log('render');
-        let {movies,currSearchText , currpage , limit} =this.state; //ES6 destructuring
+        let {movies,currSearchText , currpage , limit ,genres,cGenre} =this.state; //ES6 destructuring
         let filteredArr = [];
         if(currSearchText=='')
         {
@@ -94,6 +105,12 @@ handlePagechange=(pagenumber)=>{
                 let title = movieObj.title.toLowerCase();
                 console.log(title);
                 return title.includes(currSearchText.toLowerCase());
+            })
+        }
+        if(cGenre!='All Genres')
+        {
+            filteredArr = filteredArr.filter(function(movieObj){
+                return movieObj.genre.name==cGenre
             })
         }
        let numberofpages = Math.ceil(filteredArr.length / limit);
@@ -109,11 +126,24 @@ handlePagechange=(pagenumber)=>{
 
         return (
             //JSX
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-3'>
-                        Hello
-                    </div>
+            <>
+                {this.state.movies.length == 0 ? <div className="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div> :
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-3'>
+                                <ul className="list-group">
+                                 {
+                                     genres.map((genreObj)=>(
+                                         <li onClick={()=>this.handleGenreChange(genreObj.name)} key={genreObj._id} className='list-group-item'>
+                                             {genreObj.name}
+                                         </li>
+                                     ))
+                                 }
+                                </ul>
+                                <h5>Current Genre : {cGenre}</h5>
+                            </div>
                     <div className='col-9'>
                         <input type='search' value={this.state.currSearchText} onChange={this.handleChange} ></input>
                         <table className="table">
@@ -173,8 +203,10 @@ handlePagechange=(pagenumber)=>{
                     </div>
                 </div>
             </div>
-        )
-    }
+         }
+         </>
+     )
+ }
 }
 {/* <li className="page-item disabled">
       <a className="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>

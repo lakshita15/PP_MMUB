@@ -313,4 +313,5 @@ We create side effects.Side Effects basically are network requests on Browser.
 componentDidMount() is invoked immediately after a component is mounted (inserted into the tree).
 
 Axios:- Promisified library(Promise based HTTP client for the browser and node.js)
-installation:- npm i axios
+installation:- npm i axios.
+
