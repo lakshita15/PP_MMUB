@@ -315,3 +315,5 @@ componentDidMount() is invoked immediately after a component is mounted (inserte
 Axios:- Promisified library(Promise based HTTP client for the browser and node.js)
 installation:- npm i axios.
 
+ A <Switch> looks through its children <Route>s and
+ renders the first one that matches the current URL.
