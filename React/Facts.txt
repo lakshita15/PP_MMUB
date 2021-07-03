@@ -362,3 +362,8 @@ When we want to display the current count in a class, we read this.state.count b
 
 React will then re-render the function component, passing the new count value to it.
 //EVERYTIME STATE WILL CHANGE THE WHOLE FUNCTION WILL RE RENDER.
+
+/***************************diff between usestate and setstate *******************************************/
+In setState we only use dto write the key wwhose value needs to be changed and it didn't effect the other values.
+In useState whatever will be passed in functiion will get set.
+
