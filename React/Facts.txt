@@ -336,7 +336,7 @@ Need?
 1.Escape boiler plate code ffrom class components.
 2.No worries to handle this.
 3.Seperation of logics.
- 
+ ***********************useState***********************/
 useState:- It is a Hook.
 useState returns a pair: the current state value and a function that lets you update it.
 Funnction is  similar to [this.setState] in a class.
@@ -361,9 +361,47 @@ the function passed to update the state
 When we want to display the current count in a class, we read this.state.count but here we directly write {function name}
 
 React will then re-render the function component, passing the new count value to it.
-//EVERYTIME STATE WILL CHANGE THE WHOLE FUNCTION WILL RE RENDER.
+//EVERYTIME STATE WILL CHANGE THE WHOLE FUNCTION WILL RE RENDER/EXECUTED.
+Will state create again and again?
+No, React has implemented hooks in a way that it knows when function has been executed 1 time.Only at this time new state is created and when the function runs again the useState line is skipped in re render.
 
 /***************************diff between usestate and setstate *******************************************/
 In setState we only use dto write the key wwhose value needs to be changed and it didn't effect the other values.
 In useState whatever will be passed in functiion will get set.
 
+***********************useEffect***********************/
+It gives functionality of life cycle methods in class components to functional components.
+It is run after rendering of component.
+
+//SYNTAX
+useEffect((callback function)=>{
+---code---
+} , optional dependancy array);
+
+USEEFFCT RUNS AFTER EVERY RENDER.
+USESTATE RUNS ONLY ON 1 RENDER.
+
+Variation1:-
+1.runs after every render
+2.no dependancy array is passed
+3.Behaves partially like mixture of componentdidmount and componentdidupdate
+
+Variation2:-
+1.runs after 1 render
+2."Behaves like componentdidmount so it runs only aafter first render"
+3.dependancy array is passed. Empty dependancy array is passed
+
+Variation3:-
+1.non empty dependency array it takes values on which work is dependant to decrease uneccessary calls.
+2.dependency array k andar the values that we pass only when they change useEffect runs.
+
+Infinite.js is variation of 1 variation:-
+1.Here the setcount is changing and calls are getting infinite times as the state changes so we put and empty dependancy array to make the state chng only 1 render.
+
+CLEAN UP:-
+React performs the cleanup when the component unmounts.
+
+//if i make it like compdidmout by adding []
+ useeffect 1 baar chlega return 1 bar hoga just unmount se pehle in this case it works as comp will unmount.
+
+ WILL=>PEHLE DID=>BAAAD ME 

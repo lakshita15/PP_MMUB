@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useEffect , useState} from 'react'
 
 export default function Us() {
     const [msgObj, setMessage] = useState({message:'' , id:1});
@@ -8,7 +8,7 @@ export default function Us() {
 
         msgObj.message = val;
 
-        console.log(msg);
+        console.log(msgObj);
 
         // setMessage({...msgObj , message:val}); 
 
@@ -20,7 +20,7 @@ export default function Us() {
 
         //let Newobj = setMessage({ message:val});
 
-        
+
         let Newobj = setMessage({...msgObj , message:val})
         setMessage(Newobj);
 
@@ -32,4 +32,3 @@ export default function Us() {
         </div>
     )
 }
-h
