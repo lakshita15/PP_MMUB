@@ -405,3 +405,26 @@ React performs the cleanup when the component unmounts.
  useeffect 1 baar chlega return 1 bar hoga just unmount se pehle in this case it works as comp will unmount.
 
  WILL=>PEHLE DID=>BAAAD ME 
+
+//context api 
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+syntax
+const value = useContext(MyContext);
+
+Accepts a context object (the value returned from React.createContext) and returns the current context value for that context. The current context value is determined by the value prop of the nearest <MyContext.Provider> above the calling component in the tree.
+
+// Context lets us pass a value deep into the component tree without taking it to every component hence saving cost.
+
+
+Every Context object comes with a Provider React component that allows consuming components to subscribe to context changes.
+
+<MyContext.Provider value={/* some value */}>
+
+The Provider component accepts a value prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree. i.e agr iske bheech ke componeent ne MyContext use kia to usko default ki jgh ye props vali value milegi or they'll consume this value.
+
+All consumers that are child of a Provider will re-render whenever the Provider’s value prop changes.
+
+ // Use a Provider to pass the current theme to the tree below.
+ // Any component can read it, no matter how deep it is.
+    
