@@ -205,4 +205,7 @@ All consumers that are child of a Provider will re-render whenever the Providerâ
 
  // Use a Provider to pass the current theme to the tree below.
  // Any component can read it, no matter how deep it is.
-    
+
+/*******************INLINE STYLING IN REACT**********************/
+In style property we pass an object basically object in object in curly brace
+style ={object in which we have written styling}

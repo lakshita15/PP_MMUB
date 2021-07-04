@@ -2,8 +2,9 @@ import React,{useState,useEffect} from 'react'
 import firebase from './Firebase'
 function Demo() {
     // console.log(firebase);
-    const auth = firebase.auth();
-    const [user,setUser]= useState(null);
+
+    const auth = firebase.auth(); //auth object
+    const [user,setUser]= useState(null); 
     const[email,setEmail] =useState('');
     const[password,setPassword] = useState('');
     const[error,setError] = useState('');
