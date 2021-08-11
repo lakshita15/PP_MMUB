@@ -97,6 +97,7 @@ installation:- npm i axios.
 
  A <Switch> looks through its children <Route>s and
  renders the first one that matches the current URL.
+ 
  exact keyword make the component match exactly to path and then only renders it.
 
  <Link>
@@ -190,7 +191,8 @@ Context provides a way to pass data through the component tree without having to
 syntax
 const value = useContext(MyContext);
 
-Accepts a context object (the value returned from React.createContext) and returns the current context value for that context. The current context value is determined by the value prop of the nearest <MyContext.Provider> above the calling component in the tree.
+Accepts a context object (the value returned from React.createContext) and returns the current context value for that context. 
+The current context value is determined by the value prop of the nearest <MyContext.Provider> above the calling component in the tree.
 
 // Context lets us pass a value deep into the component tree without taking it to every component hence saving cost.
 
